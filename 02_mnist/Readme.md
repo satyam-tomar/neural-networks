@@ -2,7 +2,7 @@
 
 This is a small project where I implemented a neural network from scratch using NumPy and trained it on the MNIST handwritten digits dataset. The goal was to understand what actually happens inside a neural network instead of relying on high-level libraries.
 
-![Random MNIST sample](../images/neural_network.png)
+<img src="../images/neural_network.png" width="500">
 
 ---
 
