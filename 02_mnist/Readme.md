@@ -1,23 +1,35 @@
-# MNIST Neural Network (From Scratch)
+# MNIST Neural Network Project
 
-This is a small project where I implemented a neural network from scratch using NumPy and trained it on the MNIST handwritten digits dataset. The goal was to understand what actually happens inside a neural network instead of relying on high-level libraries.
+This repository contains two implementations of a neural network trained on the MNIST handwritten digits dataset. The same problem is approached from two different perspectives: building everything from scratch to understand the fundamentals, and using TensorFlow/Keras to follow a modern, practical workflow.
 
 <img src="../images/neural_network.png" width="500">
 
 ---
 
-## What’s Inside
+## Project Structure
+
+- `mnist_scratch.ipynb`  
+  Neural network implemented entirely from scratch using NumPy.
+
+- `mnist_tensorflow/`  
+  MNIST implementation using TensorFlow and `tf.keras`.
+
+---
+
+## 1. MNIST – From Scratch (NumPy)
+
+This notebook focuses on understanding what actually happens inside a neural network without relying on high-level libraries.
+
+### What’s Inside
 
 - MNIST dataset loading and normalization  
 - Fully connected neural network built using NumPy  
-- ReLU and Softmax activations  
+- ReLU and Softmax activation functions  
 - Categorical Cross-Entropy loss  
 - Manual forward and backward propagation  
 - Simple SGD-based training loop  
 
----
-
-## Model Setup
+### Model Setup
 
 - Input size: 784  
 - Hidden layers: 128 → 64 (ReLU)  
@@ -26,25 +38,43 @@ This is a small project where I implemented a neural network from scratch using 
 Loss: Categorical Cross-Entropy  
 Optimizer: Stochastic Gradient Descent
 
----
+### Current State
 
-## Current State
+The model trains correctly and can predict handwritten digits.  
+Training is performed over the dataset per epoch, and predictions are tested on random samples.
 
-The model trains correctly and is able to predict handwritten digits.  
-Training is done on the full dataset per epoch, and predictions are verified on random samples.
+### Possible Improvements
 
----
-
-## Things to Improve
-
-- Use mini-batch training instead of full-batch  
+- Switch to mini-batch training  
 - Add a proper train/test split  
-- Try a better optimizer (momentum or Adam)  
-- Clean up inference for single-sample prediction  
+- Experiment with better optimizers (Momentum, Adam)  
+- Improve single-sample inference flow  
 
 ---
+
+## 2. MNIST – TensorFlow (`tf.keras`)
+
+This implementation demonstrates how the same problem is solved using industry-standard tools.
+
+### What’s Inside
+
+- `tf.data.Dataset` pipeline with `map`, `batch`, and `prefetch`  
+- Model defined using `tf.keras.Model` / `Sequential`  
+- Built-in Dense layers and activations  
+- Automatic backpropagation and optimization  
+- Training using `model.fit` with callbacks  
+
+### Model Characteristics
+
+- Clear separation between data pipeline and model  
+- GPU/CPU optimized training  
+- Cleaner, shorter, and more maintainable code  
+- Easier experimentation and scaling  
+
+---
+
 
 ## Final Note
 
-This project is mainly about clarity and understanding.  
-Accuracy can be improved, but the focus here was getting the fundamentals right.
+This repository is not about achieving state-of-the-art accuracy.  
+The focus is understanding neural networks deeply and then applying that understanding using modern frameworks.
